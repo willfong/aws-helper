@@ -10,5 +10,5 @@ def _read_tag(tags, key):
             return tag['Value']
 
 for instance in response['Reservations'][0]['Instances']:
-    print(f"{instance['InstanceId']}\t{instance['InstanceType']}\t{_read_tag(instance['Tags'], 'Name')}\t{instance['PublicDnsName']}")
+    print(f"{instance['InstanceId']}\t{_read_tag(instance['Tags'], 'Name')}\t{instance['InstanceType']}\t{instance['State']['Name']}\t{instance['PublicDnsName']}")
 
