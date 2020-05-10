@@ -9,6 +9,7 @@ def _read_tag(tags, key):
         if tag['Key'] == key:
             return tag['Value']
 
-for instance in response['Reservations'][0]['Instances']:
-    print(f"{instance['InstanceId']}\t{_read_tag(instance['Tags'], 'Name')}\t{instance['InstanceType']}\t{instance['State']['Name']}\t{instance['PublicDnsName']}")
+for reservation in response['Reservations']: 
+    for instance in reservation['Instances']:
+        print(f"{instance['InstanceId']}\t{_read_tag(instance['Tags'], 'Name')}\t{instance['InstanceType']}\t{instance['State']['Name']}\t{instance['PublicDnsName']}")
 
